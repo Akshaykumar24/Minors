@@ -1,0 +1,107 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "author": "albert",
+      "body": "Whats the status?",
+      "timestamp": "Sun Aug 02 2020 18:08:45 GMT+0530",
+      "points": "2",
+      "replies": [
+        {
+          "id": 3,
+          "author": "haren",
+          "body": "Wrote the test suites, waiting for approval?",
+          "timestamp": "Sun Aug 02 2020 18:12:45 GMT+0530",
+          "points": "3",
+          "replies": [
+            {
+              "id": 4,
+              "author": "albert",
+              "body": "Thanks for the update!",
+              "timestamp": "Sun Aug 02 2020 18:15:45 GMT+0530",
+              "points": "8",
+              "replies": [
+                {
+                  "id": 5,
+                  "author": "Akshay",
+                  "body": "Releasing in 2 months?",
+                  "timestamp": 1634830141392,
+                  "points": "5",
+                  "replies": []
+                },
+                {
+                  "id": "76530dae-0116-46f5-80cb-f2a168550686",
+                  "author": "Akshay",
+                  "body": "Still Wiating",
+                  "timestamp": "Fri Oct 22 2021 16:52:17 GMT+0530 (India Standard Time)",
+                  "points": 5,
+                  "replies": []
+                }
+              ]
+            },
+            {
+              "id": "384a72a8-0296-4201-83a5-21c2a7794e7c",
+              "author": "Akshay",
+              "body": "What's the deadline for this ??",
+              "timestamp": "Fri Oct 22 2021 16:50:31 GMT+0530 (India Standard Time)",
+              "points": 9,
+              "replies": []
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "author": "Nrupul",
+          "body": "looking forward for the demo!",
+          "timestamp": "Sun Aug 02 2020 18:10:45 GMT+0530",
+          "points": "2",
+          "replies": [
+            {
+              "id": "4bc1cc4c-13d2-448e-8bdd-e1a663593a5e",
+              "author": "Akshay",
+              "body": "Yes Please Release Soon!!!",
+              "timestamp": "Fri Oct 22 2021 16:46:30 GMT+0530 (India Standard Time)",
+              "points": 5,
+              "replies": []
+            },
+            {
+              "id": "a67adf56-5d2c-4a02-9bce-d02734827150",
+              "author": "Akshay",
+              "body": "Can't wait",
+              "timestamp": "Fri Oct 22 2021 16:48:14 GMT+0530 (India Standard Time)",
+              "points": 10,
+              "replies": []
+            }
+          ]
+        },
+        {
+          "id": "7bc00c12-5666-4d0c-b032-fb8054003acd",
+          "author": "Akshay",
+          "body": "Finishing Up",
+          "timestamp": "Fri Oct 22 2021 17:17:07 GMT+0530 (India Standard Time)",
+          "points": 8,
+          "replies": [
+            {
+              "id": "1775a80c-bb7e-4b33-a8a7-f00c792c834a",
+              "author": "Akshay",
+              "body": "Where to From now",
+              "timestamp": "Fri Oct 22 2021 17:23:02 GMT+0530 (India Standard Time)",
+              "points": 10,
+              "replies": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

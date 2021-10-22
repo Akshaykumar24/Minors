@@ -1,0 +1,37 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.comment {
+  position: relative;
+  left: 35px;
+  border-left: 1px solid #61dafb;
+  padding: 10px 40px 25px;
+}
+
+.labels {
+  display: flex;
+  flex-direction: row;
+  margin-left: -15px;
+  align-items: baseline;
+}
+.label {
+  padding-left: 15px;
+  color: #008f99;
+}
+
+.inp {
+  width: 500px;
+  height: 30px;
+  padding: 3px 8px;
+  outline: none;
+  color: #006f77;
+  background-color: rgb(255, 244, 202);
+}
+.btn {
+  color: #006f77;
+  background-color: rgb(255, 244, 202);
+  width: 80px;
+  height: 40px;
+  margin-left: 8px;
+}
