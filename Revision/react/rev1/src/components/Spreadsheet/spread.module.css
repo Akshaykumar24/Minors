@@ -1,0 +1,17 @@
+.cont {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin: auto;
+}
+.box {
+  padding: 5px 15px;
+  margin: 15px 0;
+}
+.btn {
+  padding: 5px 15px;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 15px 0;
+  background-clip: border-box;
+}

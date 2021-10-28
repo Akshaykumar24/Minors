@@ -58,4 +58,7 @@ Arr.prototype.add = (a) => {
 
 let a = new Arr(1, 2, 5, 3);
 console.log(a);
-console.log(a.add(a));
+//console.log(a.add(a));
+
+import { b } from "./one.js";
+console.log(b);

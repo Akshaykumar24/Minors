@@ -1,0 +1,67 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Search Autocomplete</title>
+    <!-- Included some basic styling, change at will -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.rawgit.com/prampcontent/3ea04cbd0f61a798e96afbe5d31ec2f9/raw/e879e32222b543b29a168daa089e2f9f28cf9eb2/autocomplete.css"
+    />
+  </head>
+  <body>
+    <form class="search-form">
+      <input
+        id="search"
+        type="text"
+        class="search-input"
+        onchange="callSearch()"
+        placeholder="Start typing a movie title..."
+      />
+      <ul id="results"></ul>
+    </form>
+    <!-- Helper code to provide a search API for mock data -->
+    <script src="https://cdn.rawgit.com/prampcontent/180077452f9279073cab1035f60d30cf/raw/9cbf891a80bad9ad09c6261ef9578a65502922cc/search_helper.js"></script>
+    <script>
+      /*-------------------------------
+       *
+       * Write your JavaScript code here.
+       *
+       * The mocked search data is available using the searchData async method, e.g:
+       *   searchData("QUERY").then(results => ...)
+       * ------------------------------*/
+
+      var box = document.getElementById("search");
+      var res = document.getElementById("results");
+      let c = 0;
+      function callSearch() {
+        console.log(c++);
+        let q = box.value;
+
+        let x = debouncer(apiCall(q));
+      }
+
+      function apiCall(q) {
+        searchData(q).then((res) => appendFun(res));
+      }
+      function appendFun(d) {
+        console.log(d);
+        res.innerText = "";
+        d.forEach((el) => {
+          let g = document.createElement("li");
+          g.innerText = el.title;
+          res.append(g);
+        });
+      }
+
+      function debouncer(fn) {
+        let deb;
+        return function () {
+          deb && clearTimeout(deb);
+          deb = setTimeout(() => fn(), 1000);
+        };
+      }
+      // searchData("In").then(res=>console.log(res))
+    </script>
+  </body>
+</html>

@@ -5,6 +5,8 @@ import Register from "./components/Register";
 import Comment from "./components/Comment";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Spread from "./components/Spreadsheet/Spread";
+import { Link } from "react-router-dom";
 
 function App() {
   const [data, setData] = useState([]);
@@ -23,6 +25,9 @@ function App() {
     <div className="App-header">
       <Switch>
         <Route exact path="/">
+          <Link to="/spread">
+            <button>Spread Sheet</button>
+          </Link>
           <Comment
             dataIn={data}
             c={c}
@@ -36,6 +41,9 @@ function App() {
         </Route>
         <Route path="/register">
           <Register />
+        </Route>
+        <Route path="/spread">
+          <Spread />
         </Route>
       </Switch>
     </div>

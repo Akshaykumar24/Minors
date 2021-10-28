@@ -1,0 +1,66 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  width: 160px;
+  height: 160px;
+  margin: 50px auto;
+  display: flex;
+  overflow: hidden;
+  background-image: linear-gradient(50deg, grey, yellow);
+}
+.main::before {
+  position: absolute;
+  top: 0;
+  content: "";
+  display: none;
+  width: 30px;
+  height: 30px;
+  transition: all 2s ease;
+  transform: translate(0px, 205px);
+  background-image: linear-gradient(50deg, red, yellow, blue);
+}
+.card {
+  width: 140px;
+  height: 140px;
+  display: grid;
+  place-items: center;
+  background-color: aqua;
+  z-index: 1;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  margin-left: 10px;
+  margin-top: 10px;
+  border: 5px solid transparent;
+}
+
+.card:hover {
+  color: #fff;
+}
+.main:hover::before {
+  animation: eff 2s infinite ease;
+  transition: all 2s ease;
+  display: block;
+}
+
+@keyframes eff {
+  25% {
+    transform: translate(0px, 70px) rotate(90deg);
+    font-size: 10px;
+  }
+  50% {
+    transform: translate(130px, 70px) rotate(180deg);
+    font-size: 20px;
+  }
+  75% {
+    transform: translate(130px, 200px) rotate(270deg);
+    font-size: 30px;
+  }
+  100% {
+    transform: translateY(200px) rotate(360deg);
+    font-size: 40px;
+  }
+}
