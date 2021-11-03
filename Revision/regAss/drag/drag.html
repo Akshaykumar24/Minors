@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <p title="Drag">Hello</p>
+    <div class="ins">
+      <input type="text" id="task" />
+      <button onclick="create()">Click</button>
+      <input type="checkbox" id="theme" />
+    </div>
+    <div id="main">
+      <div class="cont dark" id="content"></div>
+      <div class="cont dark" id="drop"></div>
+    </div>
+    <nav>
+      <div class="one">One</div>
+      <div class="two">Two</div>
+      <div class="three">Three</div>
+      <div class="four">Four</div>
+    </nav>
+    <div id="hoe">
+      <div class="onn">
+        <ul>
+          <li>a</li>
+          <li>b</li>
+          <li>c</li>
+          <li>d</li>
+        </ul>
+        <ul>
+          <li>e</li>
+          <li>f</li>
+          <li>g</li>
+        </ul>
+        <ul>
+          <li>h</li>
+          <li>i</li>
+          <li>l</li>
+        </ul>
+      </div>
+      <div class="onn">
+        <ul>
+          <li>a</li>
+          <li>b</li>
+          <li>d</li>
+        </ul>
+        <ul>
+          <li>f</li>
+          <li>g</li>
+        </ul>
+        <ul>
+          <li>h</li>
+          <li>i</li>
+          <li>j</li>
+          <li>k</li>
+          <li>l</li>
+        </ul>
+      </div>
+      <div class="onn">
+        <ul>
+          <li>a</li>
+          <li>c</li>
+          <li>d</li>
+        </ul>
+        <ul>
+          <li>e</li>
+          <li>f</li>
+          <li>g</li>
+        </ul>
+        <ul>
+          <li>h</li>
+          <li>i</li>
+          <li>k</li>
+          <li>l</li>
+        </ul>
+      </div>
+      <div class="onn">
+        <ul>
+          <li>c</li>
+          <li>d</li>
+        </ul>
+        <ul>
+          <li>e</li>
+          <li>g</li>
+        </ul>
+        <ul>
+          <li>h</li>
+          <li>i</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  let y = 0;
+  function create() {
+    y++;
+    let a = document.createElement("div");
+    let h1 = document.createElement("h1");
+    let p = document.createElement("p");
+
+    h1.textContent = document.getElementById("task").value;
+    document.getElementById("task").value = "";
+    p.innerText = "status false";
+    a.append(h1, p);
+    a.setAttribute("draggable", true);
+    a.setAttribute("class", "item");
+    a.setAttribute("id", `item${y}`);
+    a.addEventListener("dragstart", (e) => dragged(e));
+    a.addEventListener("dragend", (e) => dropped(e));
+    document.querySelector(".cont").appendChild(a);
+    //console.log(v);
+  }
+
+  function dragged(e) {
+    e.target.classList.add("dragging");
+    e.dataTransfer.effectAllowed = "move";
+    event.dataTransfer.dropEffect = "move";
+  }
+
+  function dropped(e) {
+    e.target.classList.remove("dragging");
+    e.preventDefault();
+  }
+  const g = document.querySelectorAll(".cont");
+  g.forEach((a) =>
+    a.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      const afterEl = getAfter(a, e.clientY);
+      let h = document.querySelector(".dragging");
+      if (afterEl == null) {
+        a.append(h);
+      } else {
+        a.insertBefore(h, afterEl);
+      }
+    })
+  );
+
+  function getAfter(container, y) {
+    const draggable = [...container.querySelectorAll(".item:not(.dragging)")];
+    return draggable.reduce(
+      (closest, child) => {
+        const bx = child.getBoundingClientRect();
+        const off = y - bx.top - bx.height / 2;
+        //console.log(off, closest);
+        if (off < 0 && off > closest.offset) {
+          return { offset: off, element: child };
+        } else {
+          return closest;
+        }
+      },
+      { offset: Number.NEGATIVE_INFINITY }
+    ).element;
+  }
+
+  //let theme = document.querySelector("theme");
+
+  let one = document.querySelector(".one");
+  one.addEventListener("mouseover", () => {
+    let u = document.querySelectorAll(".onn");
+    u[0].classList.add("show");
+    u[0].style.marginLeft = "150px";
+  });
+  one.addEventListener("mouseout", () => {
+    let u = document.querySelectorAll(".onn");
+    u[0].classList.remove("show");
+  });
+
+  //let
+
+  let two = document.querySelector(".two");
+  two.addEventListener("mouseover", () => {
+    let u = document.querySelectorAll(".onn");
+    u[1].classList.add("show");
+    u[1].style.marginLeft = "450px";
+  });
+  two.addEventListener("mouseout", () => {
+    let u = document.querySelectorAll(".onn");
+    u[1].classList.remove("show");
+  });
+
+  // let three be
+
+  let three = document.querySelector(".three");
+  three.addEventListener("mouseover", () => {
+    let u = document.querySelectorAll(".onn");
+    u[2].classList.add("show");
+    u[2].style.marginLeft = "750px";
+  });
+  three.addEventListener("mouseout", () => {
+    let u = document.querySelectorAll(".onn");
+    u[2].classList.remove("show");
+  });
+
+  // let four
+
+  let four = document.querySelector(".four");
+  four.addEventListener("mouseover", () => {
+    let u = document.querySelectorAll(".onn");
+    u[3].classList.add("show");
+    u[3].style.marginLeft = "1050px";
+  });
+  four.addEventListener("mouseout", () => {
+    let u = document.querySelectorAll(".onn");
+    u[3].classList.remove("show");
+  });
+</script>

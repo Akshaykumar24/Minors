@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="number" name="income" id="income" />
+    <button onclick="alertIncome()">Submit</button>
+  </body>
+</html>
+<script>
+  let b = document.getElementById("income");
+  function alertIncome() {
+    let g = document.getElementById("income").value;
+    alert(g + " amount has been added to your income");
+  }
+  let h = 0;
+  const debouncer = (fn) => {
+    console.log(h++);
+    var debouncing;
+    return function () {
+      if (debouncing) {
+        clearTimeout(debouncing);
+      }
+      debouncing = setTimeout(function () {
+        fn();
+        debouncing = null;
+      }, 1000);
+    };
+  };
+  function cal() {
+    console.log("hi");
+  }
+  b.addEventListener("input", debouncer(cal));
+</script>
