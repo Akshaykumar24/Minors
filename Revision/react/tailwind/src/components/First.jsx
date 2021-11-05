@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { Theme } from "../context/themeContext";
 import style from "./first.module.css";
 
 const First = () => {
+  const { th, toggle } = useContext(Theme);
   return (
     <div>
+      <button
+        onClick={() => toggle(th)}
+        className={`${style.name} ${th === "dark" ? style.dark : style.light}`}
+      >
+        Change theme
+      </button>
       <svg
         className="w-20 h-20 animate-box "
         xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +26,11 @@ const First = () => {
       <p className="text-xl hover:animate-bounce absolute right-12 top-50">
         Welcome
       </p>
-      <h2 className={style.name}>Name is Akshaykumar.</h2>
+      <h2
+        className={`${style.name} ${th === "dark" ? style.dark : style.light}`}
+      >
+        Name is Akshaykumar.
+      </h2>
     </div>
   );
 };

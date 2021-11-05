@@ -7,7 +7,16 @@
   height: 30px;
   align-items: center;
 }
-.name::after {
+
+.dark {
+  background-color: black;
+  color: yellow;
+}
+.light {
+  background-color: yellow;
+  color: black;
+}
+/* .name::after {
   content: "";
   color: white;
   display: block;
@@ -17,7 +26,7 @@
   position: relative;
   top: -120%;
   animation: move 1s linear;
-}
+} */
 @keyframes move {
   to {
     top: 0px;
