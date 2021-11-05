@@ -1,22 +1,24 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { search } from "../store/git/action";
+let h = 0;
+
 const Reed = () => {
   const [users, setUsers] = useState([]);
   const [query, setQuery] = useState("");
-
+  const [c, setC] = useState(0);
   const dispatch = useDispatch();
   const state = useSelector((state) => state.git);
   const debRef = useRef();
 
   useEffect(() => {
-    console.log("hi");
-    debRef.current = setTimeout(function () {
-      dispatch(search(query));
-      debRef.current = null;
+    console.log(h++);
+    let t = setTimeout(() => {
+      console.log("Hello");
+      query && dispatch(search(query));
     }, 1000);
-    return clearTimeout(debRef.current);
-  }, [query, dispatch]);
+    return () => clearTimeout(t);
+  }, [query]);
 
   useEffect(() => {
     setUsers(state.users);
@@ -26,26 +28,16 @@ const Reed = () => {
     dispatch(search(query));
   };
 
-  var timer;
-  function throttle(func) {
-    if (timer) {
-      return;
-    }
-    timer = setTimeout(() => {
-      func();
-      timer = undefined;
-    }, 1000);
-  }
-
-  const makeQuery = (e) => {
-    console.log(e.target.value);
-    setQuery(e.target.value);
-    dispatch(search(e.target.value));
-  };
+  // const makeQuery = (e) => {
+  //   console.log(e.target.value);
+  //   setQuery(e.target.value);
+  //   dispatch(search(e.target.value));
+  // };
   //const opt = useCallback((e) => debouncer(makeQuery(e)), []);
   return (
     <div>
       <h1>Git Users From REDUX</h1>
+      <button onClick={() => setC((c) => c + 1)}>Call</button>
       <input
         type="text"
         value={query}
@@ -66,7 +58,6 @@ const Reed = () => {
 
 export default Reed;
 
-let h = 0;
 // const debouncer = (fn) => {
 //   console.log(h++);
 //   var debouncing;

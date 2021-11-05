@@ -1,4 +1,5 @@
 import React from "react";
+import style from "./first.module.css";
 
 const First = () => {
   return (
@@ -17,6 +18,7 @@ const First = () => {
       <p className="text-xl hover:animate-bounce absolute right-12 top-50">
         Welcome
       </p>
+      <h2 className={style.name}>Name is Akshaykumar.</h2>
     </div>
   );
 };
