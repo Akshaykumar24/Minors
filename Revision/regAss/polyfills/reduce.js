@@ -12,3 +12,4 @@ Array.prototype.myRed = function (cb, init) {
 let a = [1, 2, 3, 4, 5];
 let p = a.myRed((a, c) => a * c, 1);
 console.log(p);
+//done
