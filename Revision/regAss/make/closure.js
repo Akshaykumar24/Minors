@@ -1,20 +1,28 @@
-function callHere(n) {
-  let memo = {};
-  return function isPrime(n) {
-    for (let i = 2; i < Math.sqrt(n); i++) {
-      if (n % i == 0) return (memo[n] = false);
+function callHere() {
+  const memo = {};
+  function isPrime(n) {
+    if (memo[n]) return memo[n];
+    console.log("running first time");
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+      if (n % i == 0) {
+        memo[n] = false;
+        return memo[n];
+      }
     }
-    return (memo[n] = true);
-  };
+    memo[n] = true;
+    return memo[n];
+  }
+  return isPrime;
 }
-
-console.log(callHere(1321311357755242)());
-console.log(callHere(1321311366657721)());
-console.log(callHere(132131577214554)());
-console.log(callHere(1321113577245461)());
-console.log(callHere(1321113577245461)());
-console.log(callHere(1321113577245461)());
-console.log(callHere(1321311377521747)());
+const cal = callHere();
+console.log(cal(4));
+console.log(cal(1321311357755242));
+console.log(cal(1321311366657721));
+console.log(cal(132131577214554));
+console.log(cal(1321113577245461));
+console.log(cal(1321113577245461));
+console.log(cal(1321113577245461));
+console.log(cal(1321311377521747));
 
 function onn() {
   var x = "Hello";
@@ -24,4 +32,4 @@ function onn() {
   };
 }
 
-const y = onn()();
+//const y = onn()();
